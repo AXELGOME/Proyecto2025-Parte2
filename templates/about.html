@@ -1,27 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Acerca de la empresa...</h1>
-<a class="btn btn-success" href="{% url 'create-product-view' %}">Agregar</a>
-<table class="table">
+
+<a class="btn btn-success mb-3" href="{% url 'create-product-view' %}"> Agregar Producto</a>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Nombre</th>
       <th scope="col">Stock</th>
       <th scope="col">Activo</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
    {% for product in products %}
     <tr>
-      <th scope="row">{{product.id}}<br></th>
-      <td>{{product.name}}</td>
-      <td>{{product.stock}}</td>
-      <td>{{product.is_active}}</td>
+      <th scope="row">{{ product.id }}</th>
+      <td>{{ product.name }}</td>
+      <td>{{ product.stock }}</td>
+      <td>{{ product.is_active }}</td>
+      <td>
+        <!-- Botón Editar -->
+        <a href="{% url 'update_product' product.id %}" class="btn btn-primary btn-sm">Modificar Producto</a>
+        <!-- Botón Eliminar -->
+        <a href="{% url 'delete_product' product.id %}" class="btn btn-danger btn-sm">Eliminar Producto</a>
+      </td>
     </tr>
-{% endfor %}
-    </tbody>
+   {% endfor %}
+  </tbody>
 </table>
-
 
 {% endblock %}

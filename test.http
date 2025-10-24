@@ -6,3 +6,7 @@ Content-Type: application/json
   "username": "admin",
   "password": "admin123"
 }
+
+### 2. Acceder a ruta protegida
+GET http://127.0.0.1:8000/api/protegida/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzYxMzM1MDQ0LCJpYXQiOjE3NjEzMzE0NDQsImp0aSI6IjM2ZTMzZTQ0YmNmMTQyYjc4NmM2Njc1YTVjY2U1N2EyIiwidXNlcl9pZCI6IjIifQ.e3L_peVg634GYFKvlaxR1cmgnU-8frgPp0px19davOQ

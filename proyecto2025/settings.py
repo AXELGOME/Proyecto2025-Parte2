@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',            # Asegúrate que esta esté
+    'rest_framework_simplejwt',  # Agrega esta línea
     'users',
 ]
 
@@ -132,3 +134,21 @@ LOGIN_REDIRECT_URL = reverse_lazy('login')
 
 LOGOUT_URL = reverse_lazy('login')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
+
+# Configuración de REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+# Configuración de JWT
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
